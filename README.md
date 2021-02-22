@@ -5,7 +5,7 @@
 https://docs.continuum.io/anaconda/install/
 ```
 
-2. For windows, open Anaconda Navigator through `run as administrator`, and open `CMD.exe Prompt`; For Mac/Linux, open your terminal application.
+2. For Windows, Start --> Anaconda3 --> Anaconda Powershell Prompt --> right click and `run as administrator`; For Mac/Linux, open your terminal application.
 
 3. Activate the `base` environment and install surprise
 ```bash
@@ -13,9 +13,10 @@ conda activate base
 conda install -c conda-forge scikit-surprise
 ```
 
-4. Change directory to where you downloaded this tutorial, and run jupyter notebook
+4. Change directory to where you downloaded this tutorial, and run jupyter lab
 ```bash
-jupyter notebook
+conda install -c conda-forge jupyterlab
+jupyter lab
 ```
 
 ## Installation (Second Session)
@@ -55,7 +56,7 @@ python -m ipykernel install --user --name reco_base --display-name "Python (reco
 5. Start the Jupyter notebook server, and make sure to change the kernel to "Python (reco)".
 
 ```bash
-jupyter notebook
+jupyter lab
 ```
 
 ### Trouble Shooting

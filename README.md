@@ -7,15 +7,24 @@ https://docs.continuum.io/anaconda/install/
 
 2. For windows, open Anaconda Navigator through `run as administrator`, and open `CMD.exe Prompt`; For Mac/Linux, open your terminal application.
 
-3. Activate the `base` environment and install surprise
+3. Activate the `reco_base` environment and install surprise
 ```bash
-conda activate base
+conda create --name reco_base
+conda activate reco_base
 conda install -c conda-forge scikit-surprise
 ```
 
-4. Change directory to where you downloaded this tutorial, and run jupyter notebook
+4. Verify that it is working. Run `python` and import the `surprise` library
 ```bash
-jupyter notebook
+$ python
+Python 3.9.2 | packaged by conda-forge | (default)
+>>> from surprise import Dataset
+>>> exit()
+```
+
+5. Change directory to where you downloaded this tutorial, and run jupyter notebook
+```bash
+$ jupyter notebook
 ```
 
 ## Installation (Second Session)
@@ -25,30 +34,31 @@ These steps are only needed for the second session, however, it is highly recomm
 
 2. Clone the MS recommender repository
 ```bash
-git clone https://github.com/Microsoft/Recommenders
+$ git clone https://github.com/Microsoft/Recommenders
 ```
 
-3. Run the generate conda file script to create a conda environment and install the library
+3. Run the generate conda file script to create a conda environment and install the library. **NOTE** This process will take a long time (~ 20 minutes)
 
 ```bash
 cd Recommenders
 python tools/generate_conda_file.py
-conda env create -f reco_base.yaml
-pip install .
+conda env update -f reco_base.yaml
 ```
 
-
-
-If there are errors in the env creation step, and you've fixed it. Here is the way to update the environment, instead of starting from the beginning again
+If there are errors in the env creation step, and you've fixed it. You can rerun the following commands
 ```bash
 conda activate reco_base
 conda env update -f reco_base.yaml
 ```
 
-4. Activate the conda environment and register it with Jupyter:
+4. If you somehow exit the `reco_base` environment, activate it again by 
+```bash
+conda activate reco_base```
+
+Otherwise, install the library and register it with Jupyter
 
 ```bash
-conda activate reco_base
+pip install .
 python -m ipykernel install --user --name reco_base --display-name "Python (reco)"
 ```
 

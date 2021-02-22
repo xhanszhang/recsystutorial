@@ -64,9 +64,10 @@ pip install .
 python -m ipykernel install --user --name reco_base --display-name "Python (reco)"
 ```
 
-5. Start the Jupyter notebook server, and make sure to change the kernel to "Python (reco)".
+5. Change to the tutorial folder (the folder `recsystutorial`). Then start the Jupyter notebook server, and make sure to change the kernel to "Python (reco)".
 
 ```bash
+cd ..
 jupyter lab
 ```
 
